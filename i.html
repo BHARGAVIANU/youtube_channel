@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anu Chronicles - Grand Opening Invitation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #ff8c00, #ff0080);
+            text-align: center;
+            color: white;
+            padding: 50px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+        h1 {
+            font-size: 2.5em;
+            animation: glow 1.5s infinite alternate;
+        }
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px #ff00ff; }
+            100% { text-shadow: 0 0 20px #ffff00; }
+        }
+        .countdown {
+            font-size: 1.5em;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        .subscribe-button {
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: white;
+            background: #ff0000;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .subscribe-button:hover {
+            background: #cc0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌟 Welcome to the Grand Opening of Anu Chronicles! 🌟</h1>
+        <p>Join us on an exciting journey of Learning, Laughing, and Inspiring!</p>
+        <p>📅 Launch Date: February 1, 2025</p>
+        <div class="countdown" id="countdown"></div>
+        <button class="subscribe-button" onclick="subscribe()">Subscribe Now!</button>
+    </div>
+    <script>
+        function updateCountdown() {
+            const launchDate = new Date("Feb 1, 2025 00:00:00").getTime();
+            const now = new Date().getTime();
+            const timeLeft = launchDate - now;
+            
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+            
+            document.getElementById("countdown").innerHTML = `⏳ ${days}d ${hours}h ${minutes}m ${seconds}s left!`;
+            
+            if (timeLeft < 0) {
+                document.getElementById("countdown").innerHTML = "🎉 We Are Live Now! 🎉";
+            }
+        }
+        setInterval(updateCountdown, 1000);
+        
+        function subscribe() {
+            alert("Thank you for supporting Anu Chronicles! Stay tuned for amazing content! 🎥✨");
+            window.open("https://youtube.com/@anuchronicleslearnlaughinspire", "_blank");
+        }
+    </script>
+</body>
+</html>
